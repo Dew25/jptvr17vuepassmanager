@@ -12,17 +12,15 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Вход</span>
+      float
+      color="primary"
+      v-for="(link,i) in menuLinks "
+      :key='i' 
+      :to="link.url"
+       >
+        <span class="mr-2">{{link.title}}</span>
       </v-btn>
-      <v-btn
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Выход</span>
-      </v-btn>
+      
     </v-app-bar>
 
     <v-content>
@@ -41,8 +39,16 @@ export default {
    
   },
 
-  data: () => ({
-    //
-  }),
+  data: () =>({
+ 
+      menuLinks: [
+        {title: 'Профиль', url:'/profile'},
+        {title: 'Добавить ресурс', url:'/addResource'},
+        {title: 'Мои пароли', url:'/mypass'},
+        {title: 'Выход',url:'/logout'},
+        {title: 'Вход' ,url:'/login'},
+      ]
+    
+  })
 };
 </script>
